@@ -40,7 +40,7 @@ inside your containers. This command is automatically run as the entrypoint but 
 extending this image or working in it, you will probably use the `atoum` CLI so here is
 how it works:
 
-* it provides a `ext-install` command to help you install and configure atoum extensions:
+* the `ext-install` command lets you install and configure atoum extensions:
 
   ```sh
   $ atoum ext-install bdd
@@ -48,23 +48,29 @@ how it works:
   $ atoum ext-install json '~1.0'
   ```
 
-* it provides a `ext-update` command to help you update installed extensions:
+* the `ext-update` command lets you update installed extensions:
 
   ```sh
   $ atoum ext-update bdd
   ```
 
-* it provides an `update` command to help you keep atoum up-to-date:
+* the `update` command lets you keep atoum up-to-date:
 
   ```sh
   $ atoum update
   ```
 
 
-* it provides an `update-all` command to update everything (atoum and all installed extensions):
+* the `update-all` command lets you update everything (atoum and all installed extensions):
 
   ```sh
   $ atoum update-all
+  ```
+
+* the `say` command lets you make atoum talk:
+
+  ```sh
+  $ atoum say 'Hello World!'
   ```
 
 * every other things you pass to the `atoum` CLI will be forwarded to the original `atoum` binary. For example

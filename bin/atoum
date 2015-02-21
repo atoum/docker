@@ -30,6 +30,11 @@ case "$1" in
         composer global update
         ;;
 
+    "say")
+        shift
+        /usr/local/bin/atoum-say "$*"
+        ;;
+
     *)
         /root/.composer/vendor/bin/atoum $@
         ;;

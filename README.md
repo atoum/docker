@@ -1,4 +1,4 @@
-# atoum/docker [![Build Status](https://travis-ci.org/atoum/json-schema-extension.svg?branch=master)](https://travis-ci.org/atoum/json-schema-extension)
+# atoum/docker
 
 ![atoum](http://downloads.atoum.org/images/logo.png)
 

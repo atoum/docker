@@ -36,5 +36,5 @@
     run atoum -v
 
     [ "$status" -eq 0 ]
-    echo "${lines[0]}" | grep -P "atoum version 1\\..*"
+    echo "${lines[0]}" | grep -P "atoum version .*2\\..*"
 }

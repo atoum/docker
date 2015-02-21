@@ -22,7 +22,7 @@ RUN echo "<?php" > /.extensions.atoum.php
 ADD files/.atoum.php /.atoum.php
 ADD files/.bootstrap.atoum.php /.bootstrap.atoum.php
 
-RUN composer global require atoum/atoum:~1.0
+RUN composer global require atoum/atoum:~2.0
 
 VOLUME /src
 WORKDIR /src

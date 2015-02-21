@@ -13,8 +13,8 @@ $ docker pull atoum/atoum
 There are several tags available. Depending on the atoum version you want to use, you should use:
 
 * `atoum/atoum:latest` to get a image containing the last stable atoum release
-* `atoum/atoum:2.0` to get an image containing the last `2.0.x` atoum release
-* `atoum/atoum:1.0` to get an image containing the last `1.0.x` atoum release
+* `atoum/atoum:2.x` to get an image containing the last `2.x` atoum release
+* `atoum/atoum:1.x` to get an image containing the last `1.x` atoum release
 
 ## Run it
 

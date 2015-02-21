@@ -17,6 +17,9 @@ RUN chmod +x /sbin/entrypoint
 ADD bin/atoum /usr/local/bin/atoum
 RUN chmod +x /usr/local/bin/atoum
 
+ADD https://raw.githubusercontent.com/atoum/atoumsay/master/atoumsay /usr/local/bin/atoum-say
+RUN chmod +x /usr/local/bin/atoum-say
+
 RUN echo "<?php" > /.autoloaders.atoum.php
 RUN echo "<?php" > /.extensions.atoum.php
 ADD files/.atoum.php /.atoum.php

@@ -3,7 +3,7 @@ FROM phusion/baseimage
 ENV HOME=/root
 
 RUN apt-get update -y && \
-    apt-get install -y php5-cli wget
+    apt-get install -y php5-cli wget git
 
 RUN echo "memory_limit=-1" >> /etc/php5/cli/php.ini && \
     echo "date.timezone=Europe/Paris" >> /etc/php5/cli/php.ini
@@ -28,3 +28,11 @@ VOLUME /src
 WORKDIR /src
 
 ENTRYPOINT ["/sbin/entrypoint"]
+
+ADD tests /tests
+RUN git clone https://github.com/sstephenson/bats.git && \
+    cd bats && \
+    ./install.sh /usr/local && \
+    bats /tests/*.bats && \
+    rm -rf /tests && \
+    rm -rf /usr/local/{bin,libexec,share/man/man{1,7}}/bats*

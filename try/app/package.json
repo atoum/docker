@@ -1,0 +1,16 @@
+{
+  "name": "atoum-try",
+  "version": "1.0.0",
+  "description": "",
+  "main": "try.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^4.4.0",
+    "marked": "^0.3.3",
+    "marked-terminal": "^1.1.3"
+  }
+}

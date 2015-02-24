@@ -1,6 +1,7 @@
 FROM atoum/docker
 
 ENV HOME=/root
+ENV TERM=xterm-256color
 
 RUN apt-get update -y && \
     apt-get install -y nodejs npm
@@ -16,3 +17,5 @@ RUN chmod +x /app/bin/try
 RUN ln -s /app/bin/try /usr/local/bin/atoum-try
 
 VOLUME /sandbox
+
+ENTRYPOINT ["/sbin/entrypoint"]

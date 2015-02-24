@@ -1,4 +1,4 @@
-# atoum/docker
+# atoum/atoum
 
 ![atoum](http://downloads.atoum.org/images/logo.png)
 

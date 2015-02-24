@@ -16,18 +16,26 @@ case "$1" in
         then
             echo "require_once '/root/.composer/vendor/atoum/$2-extension/autoloader.php';" >> /.autoloaders.atoum.php
         fi
+
+        $0 --test-ext
         ;;
 
     "ext-update")
         composer global update atoum/$2-extension
+
+        $0 --test-ext
         ;;
 
     "update")
         composer global update atoum/atoum
+
+        $0 --test-it
         ;;
 
     "update-all")
         composer global update
+
+        $0 --test-it
         ;;
 
     "say")

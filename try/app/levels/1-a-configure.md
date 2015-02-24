@@ -44,4 +44,4 @@ from its CLI argument counterpart : simply take the long argument name and remov
 ## `$runner`
 
 Through this variable you will be able to configure `atoum` internals. For example, if you want to add
-a new report (there are of them available) or enable an extension you will do it through `$runner`.
+a new report (there are many of them available) or enable an extension you will do it through `$runner`.

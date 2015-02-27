@@ -12,9 +12,9 @@ $ docker pull atoum/atoum
 
 There are several tags available. Depending on the atoum version you want to use, you should use:
 
-* `atoum/atoum:latest` to get a image containing the last stable atoum release
-* `atoum/atoum:2.x` to get an image containing the last `2.x` atoum release
-* `atoum/atoum:1.x` to get an image containing the last `1.x` atoum release
+* `atoum/atoum:latest` to get an image containing the last stable atoum release,
+* `atoum/atoum:2.x` to get an image containing the last `2.x` atoum release,
+* `atoum/atoum:1.x` to get an image containing the last `1.x` atoum release.
 
 ## Run it
 
@@ -35,7 +35,7 @@ As you can see, you will have to provide a directory to link to the `/src` volum
 
 ## Utilities
 
-The docker image ships with a handy command line utility you can acces with the `atoum` command
+The docker image ships with a handy command line utility you can access to with the `atoum` command
 inside your containers. This command is automatically run as the entrypoint but if you are
 extending this image or working in it, you will probably use the `atoum` CLI so here is
 how it works:
@@ -59,7 +59,6 @@ how it works:
   ```sh
   $ atoum update
   ```
-
 
 * the `update-all` command lets you update everything (atoum and all installed extensions):
 

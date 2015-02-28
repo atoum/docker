@@ -14,7 +14,15 @@ case "$1" in
 
         if ! grep -q "$2-extension" /.autoloaders.atoum.php
         then
-            echo "require_once '/root/.composer/vendor/atoum/$2-extension/autoloader.php';" >> /.autoloaders.atoum.php
+            if -f '/root/.composer/vendor/atoum/$2-extension/autoloader.php'
+            then
+                echo "require_once '/root/.composer/vendor/atoum/$2-extension/autoloader.php';" >> /.autoloaders.atoum.php
+            fi
+
+            if -f '/root/.composer/vendor/atoum/$2-extension/Autoloader.php'
+            then
+                echo "require_once '/root/.composer/vendor/atoum/$2-extension/autoloader.php';" >> /.autoloaders.atoum.php
+            fi
         fi
 
         $0 --test-ext

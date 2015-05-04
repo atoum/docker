@@ -1,5 +1,0 @@
-#!/bin/bash
-
-export HOME=/root
-
-/sbin/my_init -- atoum-try $@

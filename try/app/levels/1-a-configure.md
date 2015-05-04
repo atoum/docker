@@ -1,6 +1,6 @@
 # Configure atoum
 
-Atoum uses a standard PHP file as its main configuration file. This file **should be**
+atoum uses a standard PHP file as its main configuration file. This file **should be**
 named `.atoum.php` and be available in the current working directory for atoum
 to load it automatically.
 

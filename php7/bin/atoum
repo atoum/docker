@@ -1,0 +1,57 @@
+#!/bin/bash
+
+case "$1" in
+    "ext-install")
+        [ -n "$3" ] && CONSTRAINT=":$3"
+        NAMESPACE=$(echo "$2" | sed "s/-\(.\)/\U\1/")
+
+        composer global require atoum/$2-extension$CONSTRAINT
+
+        if ! grep -q "atoum\\\\$NAMESPACE\\\\extension" /.extensions.atoum.php
+        then
+            echo "\$runner->addExtension(new atoum\\$NAMESPACE\\extension(\$script));" >> /.extensions.atoum.php
+        fi
+
+        if ! grep -q "$2-extension" /.autoloaders.atoum.php
+        then
+            if -f '/root/.composer/vendor/atoum/$2-extension/autoloader.php'
+            then
+                echo "require_once '/root/.composer/vendor/atoum/$2-extension/autoloader.php';" >> /.autoloaders.atoum.php
+            fi
+
+            if -f '/root/.composer/vendor/atoum/$2-extension/Autoloader.php'
+            then
+                echo "require_once '/root/.composer/vendor/atoum/$2-extension/autoloader.php';" >> /.autoloaders.atoum.php
+            fi
+        fi
+
+        $0 --test-ext
+        ;;
+
+    "ext-update")
+        composer global update atoum/$2-extension
+
+        $0 --test-ext
+        ;;
+
+    "update")
+        composer global update atoum/atoum
+
+        $0 --test-it
+        ;;
+
+    "update-all")
+        composer global update
+
+        $0 --test-it
+        ;;
+
+    "say")
+        shift
+        /usr/local/bin/atoum-say "$*"
+        ;;
+
+    *)
+        /root/.composer/vendor/bin/atoum $@
+        ;;
+esac

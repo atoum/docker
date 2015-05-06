@@ -1,15 +1,19 @@
 FROM phusion/baseimage
 
 ENV HOME=/root
+ENV ATOUM_VERSION=~1.0
 
 RUN apt-get update -y && \
-    apt-get install -y php5-cli wget git
+    apt-get install -y php5-dev php5-cli wget git
 
 RUN echo "memory_limit=-1" >> /etc/php5/cli/php.ini && \
     echo "date.timezone=Europe/Paris" >> /etc/php5/cli/php.ini
 
 RUN wget -O /usr/local/bin/composer https://getcomposer.org/composer.phar && \
     chmod +x /usr/local/bin/composer
+
+RUN wget -O /usr/local/bin/pickle https://github.com/FriendsOfPHP/pickle/releases/download/v0.4.0/pickle.phar && \
+    chmod +x /usr/local/bin/pickle
 
 ADD bin/entrypoint /sbin/entrypoint
 RUN chmod +x /sbin/entrypoint
@@ -25,7 +29,8 @@ RUN echo "<?php" > /.extensions.atoum.php
 ADD files/.atoum.php /.atoum.php
 ADD files/.bootstrap.atoum.php /.bootstrap.atoum.php
 
-RUN composer global require atoum/atoum:~1.0
+RUN pickle install xdebug
+RUN composer global require atoum/atoum:$ATOUM_VERSION
 
 VOLUME /src
 WORKDIR /src

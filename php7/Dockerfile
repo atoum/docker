@@ -3,8 +3,9 @@ FROM coderstephen/php7:latest
 ENV HOME=/root
 ENV ATOUM_VERSION=~2.0
 
-RUN apt-get update -y && \
-    apt-get install -y wget git
+RUN echo 'deb http://cz.archive.ubuntu.com/ubuntu utopic main universe' >> /etc/apt/sources.list && \
+    apt-get update -y && \
+    apt-get install -y wget git libzip-dev
 
 WORKDIR /usr/local/src/php
 ENV PHP_DIR /usr/local/php

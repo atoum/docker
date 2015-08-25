@@ -14,14 +14,14 @@ case "$1" in
 
         if ! grep -q "$2-extension" /.autoloaders.atoum.php
         then
-            if -f '/root/.composer/vendor/atoum/$2-extension/autoloader.php'
+            if -f '/usr/local/composer/vendor/atoum/$2-extension/autoloader.php'
             then
-                echo "require_once '/root/.composer/vendor/atoum/$2-extension/autoloader.php';" >> /.autoloaders.atoum.php
+                echo "require_once '/usr/local/composer/vendor/atoum/$2-extension/autoloader.php';" >> /.autoloaders.atoum.php
             fi
 
-            if -f '/root/.composer/vendor/atoum/$2-extension/Autoloader.php'
+            if -f '/usr/local/composer/vendor/atoum/$2-extension/Autoloader.php'
             then
-                echo "require_once '/root/.composer/vendor/atoum/$2-extension/autoloader.php';" >> /.autoloaders.atoum.php
+                echo "require_once '/usr/local/composer/vendor/atoum/$2-extension/autoloader.php';" >> /.autoloaders.atoum.php
             fi
         fi
 
@@ -52,6 +52,6 @@ case "$1" in
         ;;
 
     *)
-        /root/.composer/vendor/bin/atoum $@
+        /usr/local/composer/vendor/bin/atoum $@
         ;;
 esac

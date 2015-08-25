@@ -10,7 +10,8 @@ RUN echo 'deb http://cz.archive.ubuntu.com/ubuntu utopic main universe' >> /etc/
 WORKDIR /usr/local/src/php
 ENV PHP_DIR /usr/local/php
 
-RUN ./buildconf && \
+RUN git pull origin && \
+    ./buildconf && \
     ./configure \
         --prefix=$PHP_DIR \
         --with-config-file-path=$PHP_DIR \
@@ -24,9 +25,9 @@ RUN ./buildconf && \
         --without-pear && \
     make && \
     make install && \
-    ln -s /usr/local/php/bin/php /usr/local/bin/php && \
-    ln -s /usr/local/php/bin/phpize /usr/local/bin/phpize && \
-    ln -s /usr/local/php/bin/php-config /usr/local/bin/php-config
+    ln -sf /usr/local/php/bin/php /usr/local/bin/php && \
+    ln -sf /usr/local/php/bin/phpize /usr/local/bin/phpize && \
+    ln -sf /usr/local/php/bin/php-config /usr/local/bin/php-config
 
 RUN mkdir -p /usr/local/php/conf.d
 RUN echo "memory_limit=-1" >> /usr/local/php/conf.d/memory.ini && \
@@ -38,7 +39,7 @@ RUN wget -O /usr/local/bin/composer https://getcomposer.org/composer.phar && \
 WORKDIR /usr/local/src
 RUN git clone https://github.com/FriendsOfPHP/pickle.git && \
     cd pickle && composer install --prefer-dist --optimize-autoloader --no-dev && \
-    ln -s /usr/local/src/pickle/bin/pickle /usr/local/bin/pickle && \
+    ln -sf /usr/local/src/pickle/bin/pickle /usr/local/bin/pickle && \
     chmod +x /usr/local/bin/pickle
 
 ADD bin/entrypoint /sbin/entrypoint
